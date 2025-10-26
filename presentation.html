@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACEE Student Portal - Project Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .slide.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg px-6 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-gray-800">ACEE Student Portal Presentation</h1>
+                <div class="flex space-x-4">
+                    <button onclick="prevSlide()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">Previous</button>
+                    <span id="slideCounter" class="flex items-center text-gray-600 font-medium">1 / 6</span>
+                    <button onclick="nextSlide()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">Next</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Slides Container -->
+        <div class="flex-1 p-8">
+            <!-- Slide 1: Title -->
+            <div class="slide active">
+                <div class="gradient-bg rounded-2xl p-12 text-white text-center h-full flex flex-col justify-center">
+                    <h1 class="text-6xl font-bold mb-6">ACEE</h1>
+                    <h2 class="text-3xl font-light mb-8">Student Academic Dashboard</h2>
+                    <p class="text-xl opacity-90 mb-8">A Smart Web Portal for Academic Management</p>
+                    <div class="flex justify-center space-x-8 text-sm">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <div class="text-2xl font-bold">React</div>
+                            <div>Frontend</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <div class="text-2xl font-bold">LocalStorage</div>
+                            <div>Data Persistence</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <div class="text-2xl font-bold">Tailwind</div>
+                            <div>Modern UI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Proposed Solution -->
+            <div class="slide">
+                <div class="bg-white rounded-2xl p-12 card-shadow h-full">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Proposed Solution</h2>
+                    <div class="grid grid-cols-2 gap-8 h-full">
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 rounded-xl p-6">
+                                <h3 class="text-xl font-semibold text-blue-800 mb-3">🎯 Problem Statement</h3>
+                                <p class="text-gray-700">Students need a centralized platform to manage their academic progress, track assignments, and monitor performance across multiple courses.</p>
+                            </div>
+                            <div class="bg-green-50 rounded-xl p-6">
+                                <h3 class="text-xl font-semibold text-green-800 mb-3">💡 Our Solution</h3>
+                                <p class="text-gray-700">ACEE provides an intuitive, all-in-one dashboard for academic management with real-time progress tracking and performance analytics.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Key Features</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <span>Course Management & Organization</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                    <span>Assignment Tracking with Status Updates</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                    <span>Exam Scheduling & Grade Recording</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                    <span>Performance Analytics & Visualization</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                    <span>Deadline Management & Alerts</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 bg-indigo-500 rounded-full"></div>
+                                    <span>Local Data Persistence</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Tech Stack -->
+            <div class="slide">
+                <div class="bg-white rounded-2xl p-12 card-shadow h-full">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Tech Stack</h2>
+                    <div class="grid grid-cols-3 gap-8 h-full">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold text-blue-600 mb-6">Frontend</h3>
+                            <div class="space-y-4">
+                                <div class="bg-blue-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">⚛️</div>
+                                    <h4 class="font-semibold">React 18</h4>
+                                    <p class="text-sm text-gray-600">Component-based UI framework with hooks</p>
+                                </div>
+                                <div class="bg-cyan-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">🎨</div>
+                                    <h4 class="font-semibold">Tailwind CSS</h4>
+                                    <p class="text-sm text-gray-600">Utility-first CSS framework</p>
+                                </div>
+                                <div class="bg-purple-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">📊</div>
+                                    <h4 class="font-semibold">Chart.js</h4>
+                                    <p class="text-sm text-gray-600">Interactive charts and graphs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold text-green-600 mb-6">State Management</h3>
+                            <div class="space-y-4">
+                                <div class="bg-green-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">🪝</div>
+                                    <h4 class="font-semibold">React Hooks</h4>
+                                    <p class="text-sm text-gray-600">useState, useEffect for state management</p>
+                                </div>
+                                <div class="bg-yellow-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">💾</div>
+                                    <h4 class="font-semibold">LocalStorage</h4>
+                                    <p class="text-sm text-gray-600">Browser-based data persistence</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold text-orange-600 mb-6">Development</h3>
+                            <div class="space-y-4">
+                                <div class="bg-orange-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">⚡</div>
+                                    <h4 class="font-semibold">React Scripts</h4>
+                                    <p class="text-sm text-gray-600">Development server and build tools</p>
+                                </div>
+                                <div class="bg-red-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">🔧</div>
+                                    <h4 class="font-semibold">Webpack</h4>
+                                    <p class="text-sm text-gray-600">Module bundling and optimization</p>
+                                </div>
+                                <div class="bg-indigo-50 rounded-xl p-6">
+                                    <div class="text-4xl mb-2">🚀</div>
+                                    <h4 class="font-semibold">ES6+</h4>
+                                    <p class="text-sm text-gray-600">Modern JavaScript features</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: System Architecture -->
+            <div class="slide">
+                <div class="bg-white rounded-2xl p-12 card-shadow h-full">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">System Architecture</h2>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Component Architecture</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 rounded-lg">
+                                    <h4 class="font-semibold">App Component</h4>
+                                    <p class="text-sm opacity-90">Main container with state management</p>
+                                </div>
+                                <div class="ml-4 space-y-3">
+                                    <div class="bg-green-50 border-l-4 border-green-500 p-3 rounded">
+                                        <strong>Navigation:</strong> Route management & user controls
+                                    </div>
+                                    <div class="bg-purple-50 border-l-4 border-purple-500 p-3 rounded">
+                                        <strong>Dashboard:</strong> Analytics & overview
+                                    </div>
+                                    <div class="bg-orange-50 border-l-4 border-orange-500 p-3 rounded">
+                                        <strong>Courses:</strong> Course management
+                                    </div>
+                                    <div class="bg-red-50 border-l-4 border-red-500 p-3 rounded">
+                                        <strong>Assignments:</strong> Task tracking
+                                    </div>
+                                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-3 rounded">
+                                        <strong>Exams:</strong> Exam management
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6">Data Flow</h3>
+                            <div class="space-y-6">
+                                <div class="text-center">
+                                    <div class="bg-blue-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-3">
+                                        <span class="text-2xl">👤</span>
+                                    </div>
+                                    <p class="font-semibold">User Interaction</p>
+                                </div>
+                                <div class="flex justify-center">
+                                    <div class="border-l-2 border-gray-300 h-12"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-green-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-3">
+                                        <span class="text-2xl">⚛️</span>
+                                    </div>
+                                    <p class="font-semibold">React State Update</p>
+                                </div>
+                                <div class="flex justify-center">
+                                    <div class="border-l-2 border-gray-300 h-12"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-yellow-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-3">
+                                        <span class="text-2xl">💾</span>
+                                    </div>
+                                    <p class="font-semibold">LocalStorage Sync</p>
+                                </div>
+                                <div class="flex justify-center">
+                                    <div class="border-l-2 border-gray-300 h-12"></div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-purple-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-3">
+                                        <span class="text-2xl">🔄</span>
+                                    </div>
+                                    <p class="font-semibold">UI Re-render</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Implementation -->
+            <div class="slide">
+                <div class="bg-white rounded-2xl p-12 card-shadow h-full">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Implementation</h2>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-blue-600 mb-6">Development Process</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">1</div>
+                                    <div>
+                                        <h4 class="font-semibold">Project Setup</h4>
+                                        <p class="text-gray-600 text-sm">Created React app with necessary dependencies</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">2</div>
+                                    <div>
+                                        <h4 class="font-semibold">Component Development</h4>
+                                        <p class="text-gray-600 text-sm">Built modular components with React hooks</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">3</div>
+                                    <div>
+                                        <h4 class="font-semibold">State Management</h4>
+                                        <p class="text-gray-600 text-sm">Implemented state with useState and useEffect</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">4</div>
+                                    <div>
+                                        <h4 class="font-semibold">Data Persistence</h4>
+                                        <p class="text-gray-600 text-sm">Added localStorage integration</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">5</div>
+                                    <div>
+                                        <h4 class="font-semibold">UI/UX Design</h4>
+                                        <p class="text-gray-600 text-sm">Applied Tailwind CSS for modern styling</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-600 mb-6">Key Features Implemented</h3>
+                            <div class="space-y-3">
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-blue-800">📚 Course Management</h4>
+                                    <p class="text-sm text-gray-600">Add, edit, delete courses with cascade operations</p>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-green-800">📝 Assignment Tracking</h4>
+                                    <p class="text-sm text-gray-600">Status updates, due dates, grade management</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800">🎓 Exam Management</h4>
+                                    <p class="text-sm text-gray-600">Schedule exams, record grades, track performance</p>
+                                </div>
+                                <div class="bg-orange-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-orange-800">📊 Analytics Dashboard</h4>
+                                    <p class="text-sm text-gray-600">Performance charts, progress bars, statistics</p>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-red-800">⏰ Deadline Tracking</h4>
+                                    <p class="text-sm text-gray-600">Upcoming assignments and exam alerts</p>
+                                </div>
+                                <div class="bg-indigo-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800">🔐 Authentication</h4>
+                                    <p class="text-sm text-gray-600">Login system with modern design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Challenges and Outcomes -->
+            <div class="slide">
+                <div class="bg-white rounded-2xl p-12 card-shadow h-full">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Challenges & Outcomes</h2>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-red-600 mb-6">Challenges Faced</h3>
+                            <div class="space-y-4">
+                                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded">
+                                    <h4 class="font-semibold text-red-800">State Synchronization</h4>
+                                    <p class="text-sm text-gray-700">Managing complex state relationships between courses, assignments, and exams</p>
+                                </div>
+                                <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
+                                    <h4 class="font-semibold text-orange-800">Data Persistence</h4>
+                                    <p class="text-sm text-gray-700">Ensuring reliable localStorage operations and data integrity</p>
+                                </div>
+                                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                                    <h4 class="font-semibold text-yellow-800">Responsive Design</h4>
+                                    <p class="text-sm text-gray-700">Creating layouts that work across different screen sizes</p>
+                                </div>
+                                <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
+                                    <h4 class="font-semibold text-purple-800">Performance Optimization</h4>
+                                    <p class="text-sm text-gray-700">Optimizing re-renders and state updates for smooth UX</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-600 mb-6">Successful Outcomes</h3>
+                            <div class="space-y-4">
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                                    <h4 class="font-semibold text-green-800">✅ Seamless User Experience</h4>
+                                    <p class="text-sm text-gray-700">Intuitive interface with smooth animations and interactions</p>
+                                </div>
+                                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                                    <h4 class="font-semibold text-blue-800">✅ Real-time Analytics</h4>
+                                    <p class="text-sm text-gray-700">Interactive charts and performance visualizations</p>
+                                </div>
+                                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded">
+                                    <h4 class="font-semibold text-indigo-800">✅ Persistent Data</h4>
+                                    <p class="text-sm text-gray-700">Reliable data storage without external dependencies</p>
+                                </div>
+                                <div class="bg-cyan-50 border-l-4 border-cyan-500 p-4 rounded">
+                                    <h4 class="font-semibold text-cyan-800">✅ Modern Design</h4>
+                                    <p class="text-sm text-gray-700">Clean, professional interface with excellent usability</p>
+                                </div>
+                                <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded">
+                                    <h4 class="font-semibold text-pink-800">✅ Scalable Architecture</h4>
+                                    <p class="text-sm text-gray-700">Component-based structure ready for future enhancements</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Impact & Use Cases -->
+            <div class="slide">
+                <div class="bg-white rounded-2xl p-12 card-shadow h-full">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Impact & Use Cases</h2>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-blue-600 mb-6">Target Users</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gradient-to-r from-blue-100 to-blue-200 p-6 rounded-xl">
+                                    <h4 class="font-semibold text-blue-800 text-lg">🎓 Students</h4>
+                                    <p class="text-gray-700">Track academic progress, manage assignments, monitor grades</p>
+                                </div>
+                                <div class="bg-gradient-to-r from-green-100 to-green-200 p-6 rounded-xl">
+                                    <h4 class="font-semibold text-green-800 text-lg">👨‍🏫 Educators</h4>
+                                    <p class="text-gray-700">Monitor student progress, assign tasks, track completion</p>
+                                </div>
+                                <div class="bg-gradient-to-r from-purple-100 to-purple-200 p-6 rounded-xl">
+                                    <h4 class="font-semibold text-purple-800 text-lg">🏫 Institutions</h4>
+                                    <p class="text-gray-700">Streamline academic management, improve efficiency</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-green-600 mb-6">Key Benefits</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 bg-green-50 p-3 rounded-lg">
+                                    <div class="text-2xl">📈</div>
+                                    <div>
+                                        <h4 class="font-semibold">Improved Academic Performance</h4>
+                                        <p class="text-sm text-gray-600">Better organization leads to higher grades</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 bg-blue-50 p-3 rounded-lg">
+                                    <div class="text-2xl">⏱️</div>
+                                    <div>
+                                        <h4 class="font-semibold">Time Management</h4>
+                                        <p class="text-sm text-gray-600">Never miss deadlines with smart alerts</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 bg-purple-50 p-3 rounded-lg">
+                                    <div class="text-2xl">📊</div>
+                                    <div>
+                                        <h4 class="font-semibold">Progress Tracking</h4>
+                                        <p class="text-sm text-gray-600">Visual analytics for better insights</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 bg-orange-50 p-3 rounded-lg">
+                                    <div class="text-2xl">🎯</div>
+                                    <div>
+                                        <h4 class="font-semibold">Goal Achievement</h4>
+                                        <p class="text-sm text-gray-600">Clear milestones and objectives</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-3 bg-red-50 p-3 rounded-lg">
+                                    <div class="text-2xl">📱</div>
+                                    <div>
+                                        <h4 class="font-semibold">Accessibility</h4>
+                                        <p class="text-sm text-gray-600">Works on any device, anywhere</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 rounded-xl text-center">
+                        <h3 class="text-2xl font-bold mb-2">Future Enhancements</h3>
+                        <div class="grid grid-cols-3 gap-4 text-sm">
+                            <div>📚 Integration with LMS platforms</div>
+                            <div>🤖 AI-powered study recommendations</div>
+                            <div>👥 Collaborative study features</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            document.getElementById('slideCounter').textContent = `${n + 1} / ${totalSlides}`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
